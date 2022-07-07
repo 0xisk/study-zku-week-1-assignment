@@ -22,7 +22,7 @@
 \title{\LARGE \bf
 ZKU – Cohort 4 (Jul-Aug 2022)\\Week 1: Introduction to ZKP\\Assignment \sharp 1}
 
-%\author{Isk#0996}
+\author{Isk#0996}
 
 \begin{document}
 
@@ -51,6 +51,7 @@ It implements a Circom circuit to prove the multiplication of two private inputs
 \subsubsection{\textbf{2.2.1 What is a Powers of Tau ceremony?}}
 
 The Power of Tau ($\tau$) is a secure multi-party computation (\textit{MPC}) ceremony. It is used in generating the parameters of the first phase (1) in zkSNARK which consists of two phases. It can generate paramters for all the circuits up to a depth of $2^{21}$. 
+It proceeds in turns, one turn for each party, and the result of the computation of each party is then added to a public transcript, which will allow all the system be verified. The result parameters of the system then becomes secure if one party was able to destroy the random toxic waste. 
 
 \subsubsection{\textbf{2.2.2 Explain why this is important in the setup of zk-SNARK applications.}}
 
@@ -60,23 +61,24 @@ In order to deploy a zkSNARK circuits, a developer must perform a computation fo
 Power of Tau ceremony is helping in creating what is called a "Chain of trusted-setup", through allowing multiple parties to setup a trusted setup and then adding the results to a public transcript, and the system can be verified by publishing the results. Moreover, the system will be considered secure, if only one of the parties has successfully destroying the "toxic waste" file. \href{https://blog.hermez.io/hermez-zero-knowledge-proofs/}{[2]}
 
 
-\subsection{Systems that are constructed by obtaining knowledge from a human expert and coding it into
-a form that a computer may apply to similar problems.}
-\begin{flushright}
-\textbf{Expert Systems}
-\end{flushright}
+\subsubsection{\textbf{2.2.3 How are Phase 1 and Phase 2 trusted setup ceremonies different from each other?}}
 
-\subsection{Models that parallel the structure of neurons in the human brain and used to built intelligent
-programs.}
-\begin{flushright}
-\textbf{Neural Nets and Genetic Algorithms}
-\end{flushright}
 
-\subsection{Algorithms that evolve new problem solutions from components of previous solutions using
-specific operators such as crossover and mutation.}
-\begin{flushright}
-\textbf{Genetic Algorithms}
-\end{flushright}
+\subsection{\textbf{Question (3)}}
+
+\subsubsection{\textbf{Try to run \textcolor{red}{\textit{compile-Multiplier3-groth16.sh}}. You should encounter an \textcolor{red}{\textit{error[T3001]}} with the circuit as is. Explain what the error means and how it arises.}}
+
+\textcolor{red}{\textit{error[T3001]}} means that the constraint is Non-quadratic expression, because it should be one of those constraints: 
+
+\begin{labeling}{alligator}
+\item [\textbf{Constant values}] 
+\item [\textbf{Linear expression}]    $2*x + 3*y + 2$
+\item [\textbf{Quadratic expression}] $(2*x + 3*y + 2) * (x+y) + 6*x + y – 2$
+\end{labeling}  
+
+\subsection{\textbf{Question (4)}}
+\subsubsection{\textbf{2.4.1 How is the process of compiling with PLONK different from compiling with Groth16? }}
+
 \noindent\rule{8cm}{0.4pt}
 
 

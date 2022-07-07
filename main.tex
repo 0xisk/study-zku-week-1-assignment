@@ -1,0 +1,93 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment this line out
+                                                          % if you need a4paper
+%\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4
+                                                          % paper
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{scrextend}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{upgreek}
+\usepackage[export]{adjustbox}
+\usepackage[colorinlistoftodos]{todonotes}
+\IEEEoverridecommandlockouts                              
+\overrideIEEEmargins
+
+\title{\LARGE \bf
+ZKU – Cohort 4 (Jul-Aug 2022)\\Week 1: Introduction to ZKP\\Assignment \sharp 1}
+
+%\author{Isk#0996}
+
+\begin{document}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textbf{Part 1:} Theoretical background of zk-SNARKs and zk-STARKS}
+\subsection{\textbf{Explain in 2-4 sentences why SNARK requires a trusted setup while STARK doesn’t.}}
+
+\subsection{\textbf{Name two more differences between SNARK and STARK proofs.}}
+
+\noindent\rule{8cm}{0.4pt}
+
+\section{\textbf{Part 2:} Getting started with circom and snarkjs:}
+\subsection{\textbf{Question (1)}}
+\subsubsection{\textbf{2.1 What does the circuit in HelloWorld.circom do?}}
+
+It implements a Circom circuit to prove the multiplication of two private inputs signal identifiers a, and b,and calculate the result in a public output signal identifier c. 
+
+\subsection{\textbf{Question (2)}}
+\subsubsection{\textbf{2.2.1 What is a Powers of Tau ceremony?}}
+
+The Power of Tau ($\tau$) is a secure multi-party computation (\textit{MPC}) ceremony. It is used in generating the parameters of the first phase (1) in zkSNARK which consists of two phases. It can generate paramters for all the circuits up to a depth of $2^{21}$. 
+
+\subsubsection{\textbf{2.2.2 Explain why this is important in the setup of zk-SNARK applications.}}
+
+
+In order to deploy a zkSNARK circuits, a developer must perform a computation for generating the "Proving Key", and the "Verifying key", and this process called a "Trusted Setup". There is a downside for this process because it produces bad numbers called "toxic waste" file that needs to be destroyed otherwise it will produce fake proofs which will violate the security of the system. So to resolve that, the "Trusted Setup" can be setup using specific Cryptographic ceremony like the "Powers of Tau" ceremony, which will be used only in generating the first phase of parameter generation of all the projects, since zk-SNARKs requires two phases of parameter generation. \href{https://medium.com/coinmonks/announcing-the-perpetual-powers-of-tau-ceremony-to-benefit-all-zk-snark-projects-c3da86af8377#:~:text=The%20Powers%20of%20Tau%20ceremony,protocol%20can%20be%20publicly%20verified.&text=Nevertheless%2C%20each%20ceremony%20takes%20time%20and%20is%20tedious%20to%20coordinate.}{[1]}
+
+Power of Tau ceremony is helping in creating what is called a "Chain of trusted-setup", through allowing multiple parties to setup a trusted setup and then adding the results to a public transcript, and the system can be verified by publishing the results. Moreover, the system will be considered secure, if only one of the parties has successfully destroying the "toxic waste" file. \href{https://blog.hermez.io/hermez-zero-knowledge-proofs/}{[2]}
+
+
+\subsection{Systems that are constructed by obtaining knowledge from a human expert and coding it into
+a form that a computer may apply to similar problems.}
+\begin{flushright}
+\textbf{Expert Systems}
+\end{flushright}
+
+\subsection{Models that parallel the structure of neurons in the human brain and used to built intelligent
+programs.}
+\begin{flushright}
+\textbf{Neural Nets and Genetic Algorithms}
+\end{flushright}
+
+\subsection{Algorithms that evolve new problem solutions from components of previous solutions using
+specific operators such as crossover and mutation.}
+\begin{flushright}
+\textbf{Genetic Algorithms}
+\end{flushright}
+\noindent\rule{8cm}{0.4pt}
+
+
+
+
+\section{\textbf{Question 3:} Criticize Turing's criteria for computer software being "intelligent", and then describe
+your own criteria for computer software to be considered "intelligent."}
+One of the most important criticisms is aimed at it's bias toward parely symbolic problem-solving tasks. It doesn't test abilities requiring perceptual skill or manual dexterity, even though these are important components of human intelligence.
+
+I think for a computer software to be considered intelligent. It must be able to do a variety of things  that represent "human intelligence", such as the ability to learn from mistakes and experiences. Also, the ability to make moral judgments and decisions.
+\noindent\rule{8cm}{0.4pt}
+
+
+\end{document}

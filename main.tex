@@ -138,12 +138,18 @@ zkSNARK projects consists of two phases of parameter generation, The Power of Ta
 \end{labeling}  
 
 \subsection{\textbf{\underline{Question (4)}}}
-\subsubsection{\textbf{\underline{2.4.1} What are the practical differences between Groth16 and PLONK? Hint: compare and contrast the resulted contracts and running time of unit tests from the two protocols. }}
+\subsubsection{\textbf{\underline{2.4.1} What are the practical differences between Groth16 and PLONK? Hint: compazre and contrast the resulted contracts and running time of unit tests from the two protocols. }}
 
-
+\begin{enumerate}
+  \item Groth16 requires a trusted ceremony to each circuit, while PLONK does not require it, its just enough to use The Power of Tau universal setup ceremony. \cite{c8}
+  \item After running the \textcolor{red}{test/test.js} in Question (5), it turns out that Groth16 proofing system took shorter time than PLONK proofing system, where Groth16 took $1132ms$, and PLONK took $1462ms$.
+  \item The \texttt{verifyProof} in \textcolor{red}{Multiplier3Verifier.sol} of Groth16 is simpler than The \texttt{verifyProof} in \textcolor{red}{Multiplier3-plonkVerifier.sol} of PLONK
+\end{enumerate}
 
 \subsection{\textbf{\underline{Question (5)}}}
 \subsubsection{\textbf{\underline{2.5.3} In \textcolor{red}{test/test.js}, add the unit tests for \textcolor{red}{Multiplier3} for both the Groth16 and PLONK versions. Include a screenshot of all the tests (for \textcolor{red}{HelloWorld, Multiplier3 with Groth16}, and \textcolor{red}{Multiplier3 with PLONK}) passing in your PDF file.}}
+
+Look at Fig, [2].
 
 \begin{figure}[htp]
     \centering
@@ -185,6 +191,19 @@ else
 fi
 \end{lstlisting}
 
+\subsection{\textbf{\underline{Question (3) [Bonus]}}}
+\subsubsection{\textbf{\underline{3.3} Run \textcolor{red}{npm run test} to prove that the solution to the following system of equations is $x=15$, $y=17$, $z=19$.}}
+
+Look at fig, [3].
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=9cm]{assets/photo_2022-07-11_20-34-17}
+    \caption{All tests are passing.}
+    \label{fig:galaxy}
+\end{figure}
+
+
 \subsection{\textbf{\underline{Question (4) [Bonus]}}}
 \subsubsection{\textbf{\underline{3.4} what other libraries do you think could be created to help foster the growth of ZK applications?}}
 
@@ -192,9 +211,10 @@ I think it would be better if there is a support for strings in the debugging lo
 Also, it would be useful if there are a static typing system for the templates and the functions, typing the data-types of the expected inputs and the expected return.
 
 \noindent\rule{8cm}{0.4pt}
+\newpage
 
 \section*{ACKNOWLEDGMENT}
-The preferred spelling of the word ÒacknowledgmentÓ in America is without an ÒeÓ after the ÒgÓ. Avoid the stilted expression, ÒOne of us (R. B. G.) thanks . . .Ó  Instead, try ÒR. B. G. thanksÓ. Put sponsor acknowledgments in the unnumbered footnote on the first page.
+I would like to thank so much Heather @Giveth who told me to register in this great course, and would like to thank hadzija#0842 and cs#6500 for their great help and support. I am really thankful to them to everyone working behind the science to create, maintain, review, manage, and produce this great ZKP course, I see great efforts. 
 
 \noindent\rule{8cm}{0.4pt}
 \begin{thebibliography}{99}
@@ -206,6 +226,7 @@ The preferred spelling of the word ÒacknowledgmentÓ in America is without an �
 \bibitem{c5} Polygon Hermez, Hermez Zero-Knowledge Proofs, 2020. \href{https://blog.hermez.io/hermez-zero-knowledge-proofs/}{\underline{link}}
 \bibitem{c6} Matthew Finestone, Loopring Begins zkSNARK Trusted Setup Multi-Party Computation Ceremony, Nov 10, 2019 \href{https://medium.com/coinmonks/loopring-starts-zksnark-trusted-setup-multi-party-computation-ceremony-cd1b98113773#:~:text=There%20are%20two%20phases%20for,circuit%20in%20the%20Loopring%20protocol.}{\underline{link}}
 \bibitem{c7} Circom official documentations. \href{https://docs.circom.io/circom-language/constraint-generation/}{\underline{link}}
+\bibitem{c8} Snarkjs official documentation \href{https://github.com/iden3/snarkjs/blob/master/README.md}{\underline{link}}
 \end{thebibliography}
 
 \end{document}
